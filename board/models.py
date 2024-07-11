@@ -37,8 +37,3 @@ class Reply(Post):
         ]
 
         return "-".join(p for p in parts if p)
-        """
-        return str(super().id) + str(super().date_posted) + \
-            str(self.corresponding_thread.super().id) + \
-            str(super().name) + str(super().post_text)
-        """
