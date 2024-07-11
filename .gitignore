@@ -1,5 +1,5 @@
 # Project Specfic
-SECRET_KEY
+SECRETKEY
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
