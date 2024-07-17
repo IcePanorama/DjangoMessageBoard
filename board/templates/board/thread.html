@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en-US">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Django Message Board</title>
+</head>
+
+<body>
+	<h1>{{ thread.title }}</h1>
+	<p>{{ thread.name }}</p>
+	<p>{{ thread.date_posted }}</p>
+	<p>{{ thread.post_text }}</p>
+	<ul>
+		{% for reply in thread.replies.all %}
+		<li>{{ reply.post_text }}</li>
+		{% endfor %}
+	</ul>
+</body>
+
+</html>

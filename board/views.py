@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
+from django.shortcuts import render, get_object_or_404
 
 from .models import Thread
 
@@ -11,7 +11,8 @@ def index(request):
 
 
 def thread(request, thread_id):
-    return HttpResponse("You're looking at thread %s." % thread_id)
+    thread = get_object_or_404(Thread, pk=thread_id)
+    return render(request, "board/thread.html", {"thread": thread})
 
 
 def archive(request):
