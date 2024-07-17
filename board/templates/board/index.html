@@ -7,6 +7,28 @@
 </head>
 
 <body>
+	<!-- Submit a thread form -->
+	<form action="{% url 'board:submit' %}" method="post">
+		{% csrf_token %}
+		<fieldset>
+			<legend>
+				<h1>Create a thread</h1>
+				{% if error_message %}
+				<p><strong>{{ error_message }}</strong></p>
+				{% endif %}
+				<label>Title (optional)</label>
+				<input type="text" name="title">
+				<br />
+				<label>Name (optional)</label>
+				<input type="text" name="name">
+				<br />
+				<input type="text" name="post_text">
+			</legend>
+		</fieldset>
+		<input type="submit" value="Create thread">
+	</form>
+
+	<br />
 	{% if latest_thread_list %}
 	<ul>
 		{% for thread in latest_thread_list %}
@@ -14,7 +36,7 @@
 		{% endfor %}
 	</ul>
 	{% else %}
-	<p>No polls are available.</p>
+	<p>No threads are available.</p>
 	{% endif %}
 
 </body>
