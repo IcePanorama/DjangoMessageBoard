@@ -10,7 +10,7 @@
 	{% if latest_thread_list %}
 	<ul>
 		{% for thread in latest_thread_list %}
-		<li><a href="/thread/{{ thread.id }}/">{{ thread.post_text }}</a></li>
+		<li><a href="{% url 'board:thread' thread.id %}">{{ thread.post_text }}</a></li>
 		{% endfor %}
 	</ul>
 	{% else %}
